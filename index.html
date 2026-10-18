@@ -7,16 +7,16 @@
     <!-- Google Site Verification (placeholder) -->
     <meta name="google-site-verification" content="your-verification-code" />
 
-    <!-- Google tag (gtag.js) - NEW CODE -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18493764546"></script>
+    <!-- ================= NEW GOOGLE TAG (gtag.js) ================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18448896306"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-18493764546');
+      gtag('config', 'AW-18448896306');
     </script>
 
-    <!-- Event snippet for نقرة صادرة إلى الخارج conversion page - NEW CODE -->
+    <!-- ================= NEW EVENT SNIPPET (لاين conversion) ================= -->
     <script>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -25,7 +25,7 @@
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-18493764546/66w-CIPb25AdEMLnwfJE',
+          'send_to': 'AW-18448896306/LBI0CPnWkqEdELKij91E',
           'event_callback': callback
       });
       return false;
@@ -56,11 +56,21 @@
       return false;
     }
 
-    // WhatsApp opener
+    // WhatsApp opener (with conversion tracking)
     function openWhatsApp() {
       var phone = '96566131989';
       var msg = encodeURIComponent('مرحباً، أرغب في الاستفسار عن خدمات التسويق والإعلانات في الكويت.');
-      window.open('https://wa.me/' + phone + '?text=' + msg, '_blank');
+      var waUrl = 'https://wa.me/' + phone + '?text=' + msg;
+
+      if (typeof gtag_report_conversion === 'function') {
+        gtag_report_conversion(waUrl);
+      }
+
+      setTimeout(function() {
+        window.open(waUrl, '_blank');
+      }, 150);
+
+      return false;
     }
     </script>
 
